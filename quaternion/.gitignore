@@ -1,0 +1,8 @@
+#object files
+*.o
+
+# Libraries
+*.a
+
+# Vim temporal
+*.swp
