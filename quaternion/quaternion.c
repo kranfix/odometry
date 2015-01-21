@@ -38,41 +38,41 @@ void kfxQuat_mul(kfxQuat_t * q, kfxQuat_t * ql, kfxQuat_t * qr){
   
 // Math with a scalar
 void kfxQuat_mulS(kfxQuat_t * q, kfxQuat_t * ql, float num){
-  q->w = qr->w * num;
-  q->x = qr->w * num;
-  q->y = qr->y * num;
-  q->z = qr->z * num;
+  q->w = ql->w * num;
+  q->x = ql->w * num;
+  q->y = ql->y * num;
+  q->z = ql->z * num;
 }
 void kfxQuat_divS(kfxQuat_t * q, kfxQuat_t * ql, float num){
-  q->w = qr->w / num;
-  q->x = qr->w / num;
-  q->y = qr->y / num;
-  q->z = qr->z / num;
+  q->w = ql->w / num;
+  q->x = ql->w / num;
+  q->y = ql->y / num;
+  q->z = ql->z / num;
 }
 
 // Quaternion operations
-void kfxQuat_conj(kfxQuat_t * q, kfxQuat_t * ql) const {
-  q->w = qr->w;
-  q->x = -qr->x;
-  q->y = -qr->y;
-  q->z = -qr->z;
+void kfxQuat_conj(kfxQuat_t * q, kfxQuat_t * ql) {
+  q->w = ql->w;
+  q->x = -ql->x;
+  q->y = -ql->y;
+  q->z = -ql->z;
 }
 
 void kfxQuat_inv(kfxQuat_t * q, kfxQuat_t * ql) {
-  float mag = kfxQuat_modSq(*ql);
+  float mag = kfxQuat_modSq(ql);
   q->w = ql->w / mag;
   q->x = -ql->x / mag;
   q->y = -ql->y / mag;
   q->z = -ql->z / mag;
 }
 
-float kfxQuat_mod(kfxQuat_t * q) const {
-  return sqrt(kfxQuat_modSq(*q));
+float kfxQuat_mod(kfxQuat_t * q) {
+  return sqrt(kfxQuat_modSq(q));
 }
 
 // Compare Quaternions
 int kfxQuat_cmp(kfxQuat_t * ql, kfxQuat_t * qr) {
-  return (ql->w == qr->w) && (ql->x == qr->x) && 
+  return (ql->w == qr->w) && (ql->x == qr->x) &&
          (ql->y == qr->y) && (ql->z == qr->z);
 }
 

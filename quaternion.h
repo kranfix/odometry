@@ -21,29 +21,19 @@ typedef struct kfxQuat_t {
   // q = w + xi + yj + zk
   float w;
   union{
-    struct {float x, y, z};
+    struct {float x, y, z; };
     kfxVec_t V;
   };
 } kfxQuat_t;
 
 // Math with another quaternion
-void kfxQuat_sum(kfxQuat_t * q, kfxQuat_t ql, kfxQuat_t * qr);
-void kfxQuat_sub(kfxQuat_t * q, kfxQuat_t ql, kfxQuat_t * qr);
-void kfxQuat_mul(kfxQuat_t * q, kfxQuat_t ql, kfxQuat_t * qr);
+void kfxQuat_sum(kfxQuat_t * q, kfxQuat_t * ql, kfxQuat_t * qr);
+void kfxQuat_sub(kfxQuat_t * q, kfxQuat_t * ql, kfxQuat_t * qr);
+void kfxQuat_mul(kfxQuat_t * q, kfxQuat_t * ql, kfxQuat_t * qr);
   
 // Math with a scalar
-void kfxQuat_mulS(kfxQuat_t * q, kfxQuat_t * ql, float num){
-  q->w = qr->w * num;
-  q->x = qr->w * num;
-  q->y = qr->y * num;
-  q->z = qr->z * num;
-}
-void kfxQuat_divS(kfxQuat_t * q, kfxQuat_t * ql, float num){
-  q->w = qr->w / num;
-  q->x = qr->w / num;
-  q->y = qr->y / num;
-  q->z = qr->z / num;
-}
+void kfxQuat_mulS(kfxQuat_t * q, kfxQuat_t * ql, float num);
+void kfxQuat_divS(kfxQuat_t * q, kfxQuat_t * ql, float num);
 
 // Compare quaternions
 int kfxQuat_cmp(kfxQuat_t * ql, kfxQuat_t * qr);
@@ -58,12 +48,11 @@ return ql->w * qr->w +
 }
   
 // Quaternion operations
-void kfxQuat_conj(kfxQuat_t * q, kfxQuat_t * ql) const;	// Conjugate
-void kfxQuat_inv(kfxQuat_t * q, kfxQuat_t * ql) const;	// Inverse
-float kfxQuat_mod() const;      // Modulus
+void kfxQuat_conj(kfxQuat_t * q, kfxQuat_t * ql);  // Conjugate
+void kfxQuat_inv(kfxQuat_t * q, kfxQuat_t * ql);   // Inverse
+float kfxQuat_mod(kfxQuat_t * q);      // Modulus
 
-inline float
-kfxQuat_modSq(kfxQuat_t *q) const { // Modulus Squared
+inline float kfxQuat_modSq(kfxQuat_t *q) { // Modulus Squared
   return kfxQuat_dot(q,q);
 }
 

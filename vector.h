@@ -5,11 +5,11 @@
 extern "C" {
 #endif // _cplusplus
 
-typedef struct kfxVec_t {float x, y, z} kfxVec_t;
+typedef struct kfxVec_t {float x, y, z; } kfxVec_t;
 
 // Dot and Cross product
-float kfcVec_dot(kfxVec_t * vl kfxVec_t * vr);
-void kfcVec_cross(kfxVec_t * v, kfxVec_t * vl kfxVec_t * vr);
+float kfcVec_dot(kfxVec_t * vl, kfxVec_t * vr);
+void kfcVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr);
 
 // Sum between 2 vectors
 void kfxVec_sum(kfxVec_t *v, kfxVec_t * vl, kfxVec_t * vr);

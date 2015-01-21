@@ -12,12 +12,12 @@ float kfcVec_dot(kfxVec_t * vl, kfxVec_t * vr) {
   return vl->x * vr->x + vl->y * vr->y + vl->z * vr->z;
 }
 
-void kfcVec_cross(kfxVec_t * v, kfxVec_t * vl kfxVec_t * vr) {
+void kfcVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr) {
   kfxVec_t temp = {
     .x = vl->y * vr->z - vl->z * vr->y,
     .y = vl->z * vr->x - vl->x * vr->z,
     .z = vl->x * vr->y - vl->y * vr->y
-  }
+  };
   v->x = temp.x;
   v->y = temp.y;
   v->z = temp.z;
