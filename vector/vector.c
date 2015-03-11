@@ -1,18 +1,18 @@
 #ifndef github_com_kranfix_odometry_vector_vector_c
 #define github_com_kranfix_odometry_vector_vector_c
 
-#ifdef _cplusplus
+#ifdef __cplusplus
 extern "C" {
-#endif // _cplusplus
+#endif // __cplusplus
 
-#include "../vector.h"
+#include "vector.h"
 
 // Dot and Cross product
-float kfcVec_dot(kfxVec_t * vl, kfxVec_t * vr) {
+float kfxVec_dot(kfxVec_t * vl, kfxVec_t * vr) {
   return vl->x * vr->x + vl->y * vr->y + vl->z * vr->z;
 }
 
-void kfcVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr) {
+void kfxVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr) {
   kfxVec_t temp = {
     .x = vl->y * vr->z - vl->z * vr->y,
     .y = vl->z * vr->x - vl->x * vr->z,
