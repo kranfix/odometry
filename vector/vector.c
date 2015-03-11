@@ -16,7 +16,7 @@ void kfxVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr) {
   kfxVec_t temp = {
     .x = vl->y * vr->z - vl->z * vr->y,
     .y = vl->z * vr->x - vl->x * vr->z,
-    .z = vl->x * vr->y - vl->y * vr->y
+    .z = vl->x * vr->y - vl->y * vr->x
   };
   v->x = temp.x;
   v->y = temp.y;
@@ -26,8 +26,8 @@ void kfxVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr) {
 // Sum between 2 vectors
 void kfxVec_sum(kfxVec_t *v, kfxVec_t * vl, kfxVec_t * vr) {
   v->x = vl->x + vr->x;
-  v->y = vl->x + vr->y;
-  v->z = vl->x + vr->z;
+  v->y = vl->y + vr->y;
+  v->z = vl->z + vr->z;
 }
 
 // Scale a Vector
