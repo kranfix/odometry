@@ -8,7 +8,7 @@ extern "C" {
 typedef struct kfxVec_t {float x, y, z; } kfxVec_t;
 
 // Dot and Cross product
-float kfxcVec_dot(kfxVec_t * vl, kfxVec_t * vr);
+float kfxVec_dot(kfxVec_t * vl, kfxVec_t * vr);
 void kfxVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr);
 
 // Sum between 2 vectors
