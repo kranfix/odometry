@@ -1,5 +1,5 @@
-#ifndef github_com_kranfix_odometry_vector_h
-#define github_com_kranfix_odometry_vector_h
+#ifndef github_com_kranfix_odometry_vector_vector_h
+#define github_com_kranfix_odometry_vector_vector_h
 
 #ifdef _cplusplus
 extern "C" {
@@ -8,8 +8,8 @@ extern "C" {
 typedef struct kfxVec_t {float x, y, z; } kfxVec_t;
 
 // Dot and Cross product
-float kfcVec_dot(kfxVec_t * vl, kfxVec_t * vr);
-void kfcVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr);
+float kfxcVec_dot(kfxVec_t * vl, kfxVec_t * vr);
+void kfxVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr);
 
 // Sum between 2 vectors
 void kfxVec_sum(kfxVec_t *v, kfxVec_t * vl, kfxVec_t * vr);
@@ -21,4 +21,4 @@ void kfxVec_mul(kfxVec_t * v, kfxVec_t * vl, float num);
 }
 #endif // _cplusplus
 
-#endif // github_com_kranfix_odometry_vector_h
+#endif // github_com_kranfix_odometry_vector_vector_h

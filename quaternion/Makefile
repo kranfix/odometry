@@ -1,5 +1,28 @@
-quaternion.o: quaternion.c ../quaternion.h
-	gcc -std=c99 -c $<
+CC=gcc
+dir=quaternion
+PKG=.build/${dir}
+TEST=.build/test
+
+build: ${PKG}
+
+${PKG}: quaternion.c quaternion.h .build
+	gcc -c $< -o $@
+
+.build:
+	mkdir .build
 
 clean:
-	rm quaternion.o
+	rm .build/quaternion.o
+
+test: ${TEST}
+	./.build/test
+	
+
+${TEST}: test.c ${PKG}
+	${CC} $^ -o $@
+
+cleantest:
+	rm .build/test
+
+cleanall:
+	rm -rdf .build

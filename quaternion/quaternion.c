@@ -5,7 +5,7 @@
 extern "C" {
 #endif // __cplusplus
 
-#include "../quaternion.h"
+#include "quaternion.h"
 #include <math.h>
 
 // Math with another quaternion
