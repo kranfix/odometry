@@ -6,7 +6,7 @@ TEST=.build/test
 build: ${PKG}
 
 ${PKG}: quaternion.c quaternion.h .build
-	gcc -c $< -lm -o $@
+	gcc -c $< -o $@
 
 .build:
 	mkdir .build
@@ -19,7 +19,7 @@ test: ${TEST}
 	
 
 ${TEST}: test.c ${PKG}
-	${CC} $^ -o $@
+	${CC} $^ -lm -o $@
 
 cleantest:
 	rm .build/test
