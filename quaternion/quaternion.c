@@ -66,8 +66,21 @@ void kfxQuat_inv(kfxQuat_t * q, kfxQuat_t * ql) {
   q->z = -ql->z / mag;
 }
 
+// Operations like a 4 dimension vector
+float kfxQuat_dot(kfxQuat_t const * ql, kfxQuat_t const * qr){
+  return ql->w * qr->w +
+       ql->x * qr->x +
+       ql->y * qr->y +
+       ql->z * qr->z;
+}
+
+// Square modulus
+float kfxQuat_modSq(kfxQuat_t *q) { // Modulus Squared
+  return kfxQuat_dot(q,q);
+}
+
 float kfxQuat_mod(kfxQuat_t * q) {
-  return sqrt(kfxQuat_modSq(q));
+  return sqrt((double)kfxQuat_modSq(q));
 }
 
 // Compare Quaternions

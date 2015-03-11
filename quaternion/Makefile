@@ -1,12 +1,12 @@
 CC=gcc
 dir=quaternion
-PKG=.build/${dir}
+PKG=.build/${dir}.o
 TEST=.build/test
 
 build: ${PKG}
 
 ${PKG}: quaternion.c quaternion.h .build
-	gcc -c $< -o $@
+	gcc -c $< -lm -o $@
 
 .build:
 	mkdir .build
