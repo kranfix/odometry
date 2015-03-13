@@ -2,27 +2,33 @@ CC=gcc
 dir=vector
 PKG=.build/vector.o
 TEST=.build/test
+SAMPLE=.build/sample
 
 build: ${PKG}
 
-${PKG}: vector.c vector.h .build
+${PKG}: ${dir}.c ${dir}.h .build
 	gcc -c $< -o $@
 
 .build:
 	mkdir .build
 
 clean:
-	rm .build/vector.o
+	rm .build/${dir}.o
 
 test: ${TEST}
-	./.build/test
+sample: ${SAMPLE}
+	./.build/$@
 	
 
 ${TEST}: test.c ${PKG}
+${SAMPLE}: sample.c ${PKG}
 	${CC} $^ -o $@
 
 cleantest:
 	rm .build/test
+
+cleansample:
+	rm .build/sample
 
 cleanall:
 	rm -rdf .build
