@@ -21,7 +21,7 @@ int main() {
     print_quat(&c);
 	
     // Test for kfxQuat_sub
-    kfxQuat_sum(&c, &a, &b);
+    kfxQuat_sub(&c, &a, &b);
     printf("a - b = ");
     print_quat(&c);
 
@@ -55,14 +55,13 @@ int main() {
 
     // Test for kfxQuat_modSq
     float sq = kfxQuat_modSq(&a);
-    printf("module (a) = %2.3f", sq);
+    printf("module (a) = %2.3f\n", sq);
 
     // COMPARE QUATERNIONS
     //**************************************
     // Test for kfxQuat_cmp
-    kfxQuat_cmp(&a, &b);
-    printf("compare ( a, b ) : ");
-    print_quat(&c);
+    int true_or_false = kfxQuat_cmp(&a, &b);
+    printf("compare ( a, b ) : %d\n", true_or_false);
 
     printf("\n");
 

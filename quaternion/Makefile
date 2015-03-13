@@ -2,6 +2,7 @@ CC=gcc
 dir=quaternion
 PKG=.build/${dir}.o
 TEST=.build/test
+SAMPLE=.build/sample
 
 build: ${PKG}
 
@@ -15,14 +16,19 @@ clean:
 	rm .build/quaternion.o
 
 test: ${TEST}
-	./.build/test
+sample:${SAMPLE}
+	./.build/$@
 	
 
 ${TEST}: test.c ${PKG}
+${SAMPLE}: sample.c ${PKG}
 	${CC} $^ -lm -o $@
 
 cleantest:
 	rm .build/test
+
+cleansample:
+	rm .build/sample
 
 cleanall:
 	rm -rdf .build
