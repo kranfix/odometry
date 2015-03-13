@@ -39,13 +39,13 @@ void kfxQuat_mul(kfxQuat_t * q, kfxQuat_t * ql, kfxQuat_t * qr){
 // Math with a scalar
 void kfxQuat_mulS(kfxQuat_t * q, kfxQuat_t * ql, float num){
   q->w = ql->w * num;
-  q->x = ql->w * num;
+  q->x = ql->x * num;
   q->y = ql->y * num;
   q->z = ql->z * num;
 }
 void kfxQuat_divS(kfxQuat_t * q, kfxQuat_t * ql, float num){
   q->w = ql->w / num;
-  q->x = ql->w / num;
+  q->x = ql->x / num;
   q->y = ql->y / num;
   q->z = ql->z / num;
 }
