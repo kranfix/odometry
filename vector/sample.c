@@ -26,6 +26,11 @@ int main() {
     printf("a + b = ");
     print_vec(&c);
 
+    // Test for kfxVec_sum
+    kfxVec_sub(&c, &a, &b);
+    printf("a - b = ");
+    print_vec(&c);
+
     // Test for kfxVec_mul
     kfxVec_mul(&c, &a, 0.5);
     printf("a * 0.5 = ");

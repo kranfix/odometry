@@ -23,11 +23,17 @@ void kfxVec_cross(kfxVec_t * v, kfxVec_t * vl, kfxVec_t * vr) {
   v->z = temp.z;
 }
 
-// Sum between 2 vectors
+// Sum and sub between 2 vectors
 void kfxVec_sum(kfxVec_t *v, kfxVec_t * vl, kfxVec_t * vr) {
   v->x = vl->x + vr->x;
   v->y = vl->y + vr->y;
   v->z = vl->z + vr->z;
+}
+
+void kfxVec_sub(kfxVec_t *v, kfxVec_t * vl, kfxVec_t * vr) {
+  v->x = vl->x - vr->x;
+  v->y = vl->y - vr->y;
+  v->z = vl->z - vr->z;
 }
 
 // Scale a Vector
