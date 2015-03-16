@@ -6,7 +6,7 @@ void print_quat();
 
 int main() {
     kfxQuat_t a = {3.0, 4.0, 6.0, 1.0};
-    kfxQuat_t b = {2., 3., -1., 1.0};
+    kfxQuat_t b = {.w= 2., .V= {3., -1., 1.0} };
     kfxQuat_t c;
 
     // Printing variable "a" and "b"
