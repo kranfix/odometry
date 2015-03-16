@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "quaternion.h"
+#include "mat3.h"
 #include <math.h>
 
 void print_mat3();
@@ -17,7 +17,7 @@ int main() {
              {2.0, 1.0, 0.}
         };
     kfxMat3_t c;
-    kfxVec_t c;
+    kfxVec_t vo;
 
     // Printing variable "a" and "b"
     printf("a = ");   print_mat3(a);

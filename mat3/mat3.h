@@ -25,8 +25,8 @@ void kfxMat3_sub(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr);
 void kfxMat3_mul(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr);
   
 // Math with a scalar
-void kfxMat3_mulS(kfxMat3_t * m, kfxQuat_t * ml, float num);
-void kfxMat3_divS(kfxMat3_t * m, kfxQuat_t * ml, float num);
+void kfxMat3_mulS(kfxMat3_t * m, kfxMat3_t * ml, float num);
+void kfxMat3_divS(kfxMat3_t * m, kfxMat3_t * ml, float num);
 
 // Math with vector colum
 void kfxMat3_mulVec(kfxVec_t * Vo, kfxMat3_t * m, kfxVec_t * Vi);
@@ -35,7 +35,7 @@ void kfxMat3_mulVec(kfxVec_t * Vo, kfxMat3_t * m, kfxVec_t * Vi);
 int kfxMat3_cmp(kfxMat3_t * ml, kfxMat3_t * mr);
 
 // Matrix Inverse
-void kfxMat3_inv(kfxMat3_t * mo, kfxMat3 * mi);
+void kfxMat3_inv(kfxMat3_t * mo, kfxMat3_t * mi);
 
 // Matrix determinant
 float kfxMat3_det(kfxMat3_t * m);
