@@ -3,6 +3,8 @@ dir=mat3
 PKG=.build/${dir}.o
 TEST=.build/test
 SAMPLE=.build/sample
+LIBVEC=../vector/.build
+LIBS=-L${LIBVEC} vector.o
 
 build: ${PKG}
 
@@ -21,8 +23,11 @@ sample:${SAMPLE}
 	
 
 ${TEST}: test.c ${PKG}
-${SAMPLE}: sample.c ${PKG}
+${SAMPLE}: sample.c ${PKG} ${LIBVEC}/vector.o
 	${CC} $^ -lm -o $@
+
+${LIBVEC}/vector.o:
+	cd ../vector; make;
 
 cleantest:
 	rm .build/test

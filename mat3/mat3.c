@@ -10,29 +10,60 @@ extern "C" {
 
 // Math with another quaternion
 void kfxMat3_sum(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr){
-  *m = *ml;
+  int i, j;
+  for(i = 0; i < 3; i++) {
+    for(j = 0; j < 3; j++) {
+      m->r[i].e[j] = ml->r[i].e[j] + mr->r[i].e[j];
+    }
+  }
 }
 
 void kfxMat3_sub(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr){
-  *m = *ml;
+  int i, j;
+  for(i = 0; i < 3; i++) {
+    for(j = 0; j < 3; j++) {
+      m->r[i].e[j] = ml->r[i].e[j] - mr->r[i].e[j];
+    }
+  }
 }
 
 void kfxMat3_mul(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr) {
-  *m = *ml;
+  kfxMat3_t temp;
+  int i, j;
+  for(i = 0; i < 3; i++) {
+    for(j = 0; j < 3; j++) {
+      m->r[i].e[j] = ml->r[i].x - mr->r0.e[j] +
+                    ml->r[i].y - mr->r1.e[j] +
+                    ml->r[i].z - mr->r2.e[j]; 
+    }
+  }
+  *m = temp;
 }
   
 // Math with a scalar
 void kfxMat3_mulS(kfxMat3_t * m, kfxMat3_t * ml, float num){
-  *m = *ml;
+  int i, j;
+  for(i = 0; i < 3; i++) {
+    for(j = 0; j < 3; j++) {
+      m->r[i].e[j] = ml->r[i].e[j] * num;
+    }
+  }
 }
 
 void kfxMat3_divS(kfxMat3_t * m, kfxMat3_t * ml, float num) {
-  *m = *ml;
+  int i, j;
+  for(i = 0; i < 3; i++) {
+    for(j = 0; j < 3; j++) {
+      m->r[i].e[j] = ml->r[i].e[j] / num;
+    }
+  }
 }
 
 // Math with vector colum
 void kfxMat3_mulVec(kfxVec_t * Vo, kfxMat3_t * m, kfxVec_t * Vi){
-  *Vo = *Vi;
+  Vo->x = kfxVec_dot(&(m->r0.r),Vi);
+  Vo->y = kfxVec_dot(&m->r1.r,Vi);
+  Vo->z = kfxVec_dot(&m->r2.r,Vi);
 }
 
 // Compare quaternions
