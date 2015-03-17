@@ -48,7 +48,7 @@ int main() {
     print_mat3(&c);   printf("\n");
 
     // Math with vector colum
-    printf("c = a * vi\n");
+    printf("vo = a * vi\n");
     kfxMat3_mulVec(&vo, &a, &vi);
     print_vec(&vo); printf("\n");
 

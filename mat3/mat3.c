@@ -32,9 +32,9 @@ void kfxMat3_mul(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr) {
   int i, j;
   for(i = 0; i < 3; i++) {
     for(j = 0; j < 3; j++) {
-      m->r[i].e[j] = ml->r[i].x - mr->r0.e[j] +
-                    ml->r[i].y - mr->r1.e[j] +
-                    ml->r[i].z - mr->r2.e[j]; 
+      temp.r[i].e[j] = ml->r[i].x * mr->r0.e[j] +
+                    ml->r[i].y * mr->r1.e[j] +
+                    ml->r[i].z * mr->r2.e[j]; 
     }
   }
   *m = temp;
@@ -68,7 +68,14 @@ void kfxMat3_mulVec(kfxVec_t * Vo, kfxMat3_t * m, kfxVec_t * Vi){
 
 // Compare quaternions
 int kfxMat3_cmp(kfxMat3_t * ml, kfxMat3_t * mr) {
-  return 0;
+  int i = 0, j = 0;
+  for( ; i < 3; i++) {
+    for( ; j < 3; j++) {
+      if(ml->r[i].e[j] != mr->r[i].e[j])
+        return 0;
+    }
+  }
+  return 1;
 }
 
 // Matrix Inverse
