@@ -12,11 +12,11 @@ typedef struct kfxAxisang_t {
   // a = ( alpha, n(x,y,z) )
   float a;
   kfxVec_Union(n);
-} kfxQuat_t;
+} kfxAxisang_t;
 
 
 // Math with another quaternion
-void kfxAxisang_normalize(kfxAxisang_t * ao, kfxMat3_t * ai, int * err);
+void kfxAxisang_normalize(kfxAxisang_t * ao, kfxAxisang_t * ai, int * err);
 
 #ifdef __cplusplus
 };
