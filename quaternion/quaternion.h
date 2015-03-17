@@ -14,7 +14,6 @@ https://github.com/fheavr/Quaternion/blob/master/src/Vector.cpp
 extern "C" {
 #endif // __cplusplus
 
-#include <math.h>
 #include "../vector/vector.h"
 
 /* Definition of a Quaternion */

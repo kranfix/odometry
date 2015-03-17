@@ -67,7 +67,7 @@ void kfxQuat_inv(kfxQuat_t * q, kfxQuat_t * ql) {
 }
 
 // Operations like a 4 dimension vector
-float kfxQuat_dot(kfxQuat_t const * ql, kfxQuat_t const * qr){
+float kfxQuat_dot(kfxQuat_t * ql, kfxQuat_t * qr){
   return ql->w * qr->w +
        ql->x * qr->x +
        ql->y * qr->y +
