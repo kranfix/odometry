@@ -58,8 +58,9 @@ int main() {
 
     // Matrix Inverse
     printf("c = inv(a)\n");
-    kfxMat3_inv(&c, &a);
-    print_mat3(&c);   printf("\n");
+    int err;
+    kfxMat3_inv(&c, &a, &err);
+    print_mat3(&c);   printf("err: %d\n\n", err);
 
     // Matrix determinant
     float det = kfxMat3_det(&a);

@@ -35,7 +35,7 @@ void kfxMat3_mulVec(kfxVec_t * Vo, kfxMat3_t * m, kfxVec_t * Vi);
 int kfxMat3_cmp(kfxMat3_t * ml, kfxMat3_t * mr);
 
 // Matrix Inverse
-void kfxMat3_inv(kfxMat3_t * mo, kfxMat3_t * mi);
+void kfxMat3_inv(kfxMat3_t * mo, kfxMat3_t * mi, int * err);
 
 // Matrix determinant
 float kfxMat3_det(kfxMat3_t * m);

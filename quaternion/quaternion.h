@@ -21,10 +21,6 @@ extern "C" {
 typedef struct kfxQuat_t {
   // q = w + xi + yj + zk
   float w;
-  /*union{
-    struct {float x, y, z; };
-    kfxVec_t V;
-  };*/
   kfxVec_Union(V);
 } kfxQuat_t;
 
@@ -49,11 +45,6 @@ void kfxQuat_inv(kfxQuat_t * q, kfxQuat_t * ql);   // Inverse
 float kfxQuat_mod(kfxQuat_t * q);      // Modulus
 
 float kfxQuat_modSq(kfxQuat_t *q);
-
-// About Norm
-//inline int kfxQuat_isNormalised(kfxQuat_t * q) const {
-//  return kfx
-//}
 
 #ifdef __cplusplus
 };

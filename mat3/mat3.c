@@ -45,23 +45,23 @@ void kfxMat3_mulS(kfxMat3_t * m, kfxMat3_t * ml, float num){
   int i, j;
   for(i = 0; i < 3; i++) {
     for(j = 0; j < 3; j++) {
-      m->r[i].e[j] = ml->r[i].e[j] * num;
+      m->r[i].e[j] *= num;
     }
   }
 }
 
 void kfxMat3_divS(kfxMat3_t * m, kfxMat3_t * ml, float num) {
-  int i, j;
-  for(i = 0; i < 3; i++) {
-    for(j = 0; j < 3; j++) {
-      m->r[i].e[j] = ml->r[i].e[j] / num;
+  int i = 0, j = 0;
+  for( ; i < 3; i++) {
+    for( ; j < 3; j++) {
+      m->r[i].e[j] /= num;
     }
   }
 }
 
 // Math with vector colum
 void kfxMat3_mulVec(kfxVec_t * Vo, kfxMat3_t * m, kfxVec_t * Vi){
-  Vo->x = kfxVec_dot(&(m->r0.r),Vi);
+  Vo->x = kfxVec_dot(&m->r0.r,Vi);
   Vo->y = kfxVec_dot(&m->r1.r,Vi);
   Vo->z = kfxVec_dot(&m->r2.r,Vi);
 }
@@ -78,14 +78,35 @@ int kfxMat3_cmp(kfxMat3_t * ml, kfxMat3_t * mr) {
   return 1;
 }
 
-// Matrix Inverse
-void kfxMat3_inv(kfxMat3_t * mo, kfxMat3_t * mi) {
-  *mo = *mi;
+void kfxMat3_inv(kfxMat3_t * mo, kfxMat3_t * mi, int * err) {
+  float det = kfxMat3_det(mi);
+  if(det == 0) {
+    *err = 1;
+    return;
+  }
+  *mo = (kfxMat3_t){
+    .r0 = { (mi->r1.y * mi->r2.z - mi->r1.z * mi->r2.y)/det,
+            (mi->r1.z * mi->r2.x - mi->r1.x * mi->r2.z)/det,
+            (mi->r1.x * mi->r2.y - mi->r1.y * mi->r2.x)/det
+          },
+    .r1 = { (mi->r2.y * mi->r0.z - mi->r2.z * mi->r0.y)/det,
+            (mi->r2.z * mi->r0.x - mi->r2.x * mi->r0.z)/det,
+            (mi->r2.x * mi->r0.y - mi->r2.y * mi->r0.x)/det
+          },
+    .r2 = { (mi->r0.y * mi->r1.z - mi->r0.z * mi->r1.y)/det,
+            (mi->r0.z * mi->r1.x - mi->r0.x * mi->r1.z)/det,
+            (mi->r0.x * mi->r1.y - mi->r0.y * mi->r1.x)/det
+          }
+        };
+  *err = 0;
 }
 
 // Matrix determinant
 float kfxMat3_det(kfxMat3_t * m) {
-  return 0;
+  float d = m->r0.x * (m->r1.y * m->r2.z - m->r1.z * m->r2.y);
+  d += m->r0.y * (m->r1.z * m->r2.x - m->r1.x * m->r2.z);
+  d += m->r0.z * (m->r1.x * m->r2.y - m->r1.y * m->r2.x);
+  return d;
 }
 
 #ifdef __cplusplus
