@@ -41,7 +41,7 @@ void kfxQuat_divS(kfxQuat_t * q, kfxQuat_t * ql, float num);
 int kfxQuat_cmp(kfxQuat_t * ql, kfxQuat_t * qr);
 
 // Operations like a 4 dimension vector
-float kfxQuat_dot(kfxQuat_t const * ql, kfxQuat_t const * qr);
+float kfxQuat_dot(kfxQuat_t * ql, kfxQuat_t * qr);
   
 // Quaternion operations
 void kfxQuat_conj(kfxQuat_t * q, kfxQuat_t * ql);  // Conjugate
