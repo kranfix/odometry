@@ -43,7 +43,7 @@ void kfxRpy_2Axisang(kfxRpy_t * rpy, kfxAxisang_t * axis){
   float cp = cos((rpy->p)/2);
   float sp = sin((rpy->p)/2);
 
-  ////////// AXIS //////////    
+  ////////// AXIS //////////	
   axis->a = 2*acos(cp*cos((rpy->y + rpy->r)/2));
 
   float sa = pow(sin(axis->a/2),-1);
