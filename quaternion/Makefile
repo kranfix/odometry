@@ -3,17 +3,19 @@ dir=quaternion
 PKG=.build/${dir}.o
 TEST=.build/test
 SAMPLE=.build/sample
+LIBVEC=../vector/.build
+LIBS=-L${LIBVEC} vector.o
 
 build: ${PKG}
 
-${PKG}: quaternion.c quaternion.h .build
+${PKG}: ${dir}.c ${dir}.h .build
 	gcc -c $< -o $@
 
 .build:
 	mkdir .build
 
 clean:
-	rm .build/quaternion.o
+	rm .build/${dir}.o
 
 test: ${TEST}
 sample:${SAMPLE}
@@ -21,8 +23,11 @@ sample:${SAMPLE}
 	
 
 ${TEST}: test.c ${PKG}
-${SAMPLE}: sample.c ${PKG}
+${SAMPLE}: sample.c ${PKG} ${LIBVEC}/vector.o
 	${CC} $^ -lm -o $@
+
+${LIBVEC}/vector.o:
+	cd ../vector; make;
 
 cleantest:
 	rm .build/test
