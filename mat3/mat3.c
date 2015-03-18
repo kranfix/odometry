@@ -12,7 +12,7 @@ extern "C" {
 void kfxMat3_sum(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr){
   int i;
   for(i = 0; i < 3; i++) {
-    kfxVec_sub(&m->r[i].r, &ml->r[i].r, &mr->r[i].r);
+    kfxVec_sum(&m->r[i].r, &ml->r[i].r, &mr->r[i].r);
   }
 }
 
@@ -40,7 +40,7 @@ void kfxMat3_mul(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr) {
 void kfxMat3_mulS(kfxMat3_t * m, kfxMat3_t * ml, float num){
   int i;
   for(i = 0; i < 3; i++) {
-    kfxVec_mul(&m->r[i].r, &m->r[i].r, num);
+    kfxVec_mul(&m->r[i].r, &ml->r[i].r, num);
   }
 }
 
@@ -49,7 +49,7 @@ int kfxMat3_divS(kfxMat3_t * m, kfxMat3_t * ml, float num) {
   if(num == 0) return 1;
   float temp = 1/num;
   for( ; i < 3; i++) {
-    kfxVec_mul(&m->r[i].r, &m->r[i].r, temp);
+    kfxVec_mul(&m->r[i].r, &ml->r[i].r, temp);
   }
   return 1;
 }
