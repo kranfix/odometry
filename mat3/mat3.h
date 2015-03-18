@@ -10,7 +10,7 @@ extern "C" {
 /* Definition of row */
 typedef union _kfxRow3_t {
   float e[3];
-  kfxVec_Union(r);
+  kfxVec_Union(r, x, y, z);
 } _kfxRow3_t;
 
 /* Definition of a 3 orderMatrix */

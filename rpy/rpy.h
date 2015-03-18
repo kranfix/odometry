@@ -9,7 +9,7 @@ extern "C" {
 
 /* Definition of a Axis-Angle */
 typedef struct kfxRpy_t {
-  float r, p, y;
+  kfxVec_Union(v, r, p, y);
 } kfxRpy_t;
 
 

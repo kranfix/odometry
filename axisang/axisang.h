@@ -11,7 +11,7 @@ extern "C" {
 typedef struct kfxAxisang_t {
   // a = ( alpha, n(x,y,z) )
   float a;
-  kfxVec_Union(n);
+  kfxVec_Union(n, x, y, z);
 } kfxAxisang_t;
 
 

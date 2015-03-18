@@ -20,7 +20,7 @@ extern "C" {
 typedef struct kfxQuat_t {
   // q = w + xi + yj + zk
   float w;
-  kfxVec_Union(V);
+  kfxVec_Union(V, x, y, z);
 } kfxQuat_t;
 
 // Math with another quaternion

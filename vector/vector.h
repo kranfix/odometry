@@ -7,8 +7,8 @@ extern "C" {
 
 typedef struct kfxVec_t {float x, y, z; } kfxVec_t;
 
-#define kfxVec_Union(vecname) union{   \
-      struct {float x, y, z; };        \
+#define kfxVec_Union(vecname, e1, e2, e3) union{   \
+      struct {float e1, e2, e3; };        \
       kfxVec_t vecname;                \
     };
 
