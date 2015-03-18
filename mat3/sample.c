@@ -44,8 +44,8 @@ int main() {
     print_mat3(&c);   printf("\n");
 
     printf("c = a / 2.0\n");
-    kfxMat3_divS(&c, &a, 2);
-    print_mat3(&c);   printf("\n");
+    int errdiv = kfxMat3_divS(&c, &a, 2);
+    print_mat3(&c);   printf("err: %d\n\n", errdiv);
 
     // Math with vector colum
     printf("vo = a * vi\n");
@@ -58,9 +58,8 @@ int main() {
 
     // Matrix Inverse
     printf("c = inv(a)\n");
-    int err;
-    kfxMat3_inv(&c, &a, &err);
-    print_mat3(&c);   printf("err: %d\n\n", err);
+    int errinv = kfxMat3_inv(&c, &a);
+    print_mat3(&c);   printf("err: %d\n\n", errinv);
 
     // Matrix determinant
     float det = kfxMat3_det(&a);

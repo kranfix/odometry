@@ -10,20 +10,16 @@ extern "C" {
 
 // Math with another quaternion
 void kfxMat3_sum(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr){
-  int i, j;
+  int i;
   for(i = 0; i < 3; i++) {
-    for(j = 0; j < 3; j++) {
-      m->r[i].e[j] = ml->r[i].e[j] + mr->r[i].e[j];
-    }
+    kfxVec_sub(&m->r[i].r, &ml->r[i].r, &mr->r[i].r);
   }
 }
 
 void kfxMat3_sub(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr){
-  int i, j;
+  int i;
   for(i = 0; i < 3; i++) {
-    for(j = 0; j < 3; j++) {
-      m->r[i].e[j] = ml->r[i].e[j] - mr->r[i].e[j];
-    }
+    kfxVec_sub(&m->r[i].r, &ml->r[i].r, &mr->r[i].r);
   }
 }
 
@@ -42,28 +38,27 @@ void kfxMat3_mul(kfxMat3_t * m, kfxMat3_t * ml, kfxMat3_t * mr) {
   
 // Math with a scalar
 void kfxMat3_mulS(kfxMat3_t * m, kfxMat3_t * ml, float num){
-  int i, j;
+  int i;
   for(i = 0; i < 3; i++) {
-    for(j = 0; j < 3; j++) {
-      m->r[i].e[j] *= num;
-    }
+    kfxVec_mul(&m->r[i].r, &m->r[i].r, num);
   }
 }
 
-void kfxMat3_divS(kfxMat3_t * m, kfxMat3_t * ml, float num) {
-  int i = 0, j = 0;
+int kfxMat3_divS(kfxMat3_t * m, kfxMat3_t * ml, float num) {
+  int i = 0;
+  if(num == 0) return 1;
+  float temp = 1/num;
   for( ; i < 3; i++) {
-    for( ; j < 3; j++) {
-      m->r[i].e[j] /= num;
-    }
+    kfxVec_mul(&m->r[i].r, &m->r[i].r, temp);
   }
+  return 1;
 }
 
 // Math with vector colum
 void kfxMat3_mulVec(kfxVec_t * Vo, kfxMat3_t * m, kfxVec_t * Vi){
-  Vo->x = kfxVec_dot(&m->r0.r,Vi);
-  Vo->y = kfxVec_dot(&m->r1.r,Vi);
-  Vo->z = kfxVec_dot(&m->r2.r,Vi);
+  Vo->x = kfxVec_dot(&m->r0.r, Vi);
+  Vo->y = kfxVec_dot(&m->r1.r, Vi);
+  Vo->z = kfxVec_dot(&m->r2.r, Vi);
 }
 
 // Compare quaternions
@@ -78,11 +73,10 @@ int kfxMat3_cmp(kfxMat3_t * ml, kfxMat3_t * mr) {
   return 1;
 }
 
-void kfxMat3_inv(kfxMat3_t * mo, kfxMat3_t * mi, int * err) {
+int kfxMat3_inv(kfxMat3_t * mo, kfxMat3_t * mi) {
   float det = kfxMat3_det(mi);
   if(det == 0) {
-    *err = 1;
-    return;
+    return 1;
   }
   *mo = (kfxMat3_t){
     .r0 = { (mi->r1.y * mi->r2.z - mi->r1.z * mi->r2.y)/det,
@@ -97,8 +91,8 @@ void kfxMat3_inv(kfxMat3_t * mo, kfxMat3_t * mi, int * err) {
             (mi->r0.z * mi->r1.x - mi->r0.x * mi->r1.z)/det,
             (mi->r0.x * mi->r1.y - mi->r0.y * mi->r1.x)/det
           }
-        };
-  *err = 0;
+  };
+  return 0;
 }
 
 // Matrix determinant
