@@ -29,18 +29,18 @@ void kfxRpy_2Mat3(kfxRpy_t * rpy, kfxMat3_t * m){
 }
 
 void kfxRpy_2Quat(kfxRpy_t * rpy, kfxQuat_t * q){
-  float cp = cos((rpy->p)/2);	
+  float cp = cos((rpy->p)/2);
   float sp = sin((rpy->p)/2);
-	
+
   ///////// QUATERNION //////////
-  q->w = cp*cos((rpy->y + rpy->r)/2);	
-  q->x = -sp*sin((rpy->y - rpy->r)/2);	
-  q->y = sp*cos((rpy->y - rpy->r)/2);	
-  q->z = cp*cos((rpy->y + rpy->r)/2);	
+  q->w = cp*cos((rpy->y + rpy->r)/2);
+  q->x = -sp*sin((rpy->y - rpy->r)/2);
+  q->y = sp*cos((rpy->y - rpy->r)/2);
+  q->z = cp*cos((rpy->y + rpy->r)/2);
 }
 
 void kfxRpy_2Axisang(kfxRpy_t * rpy, kfxAxisang_t * axis){
-  float cp = cos((rpy->p)/2);	
+  float cp = cos((rpy->p)/2);
   float sp = sin((rpy->p)/2);
 
   ////////// AXIS //////////	
