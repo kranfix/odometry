@@ -71,11 +71,10 @@ int main() {
 }
 
 void print_mat3(kfxMat3_t * m) {
-    printf("\t{%2.1f, %2.1f, %2.1f}\n", m->r0.x, m->r0.y, m->r0.z);
-    printf("\t{%2.1f, %2.1f, %2.1f}\n",
-           m->r[1].x, m->r[1].y, m->r[1].e[2]);
-    printf("\t{%2.1f, %2.1f, %2.1f}\n",
-           m->r[2].e[0], m->r2.e[1], m->r[2].z);
+  char s[] = "\t{%2.1f, %2.1f, %2.1f}\n";
+    printf(s, m->r0.x, m->r0.y, m->r0.z);
+    printf(s, m->r[1].x, m->r[1].y, m->r[1].e[2]);
+    printf(s, m->r[2].e[0], m->r2.e[1], m->r[2].z);
 }
 
 void print_vec(kfxVec_t * v) {
