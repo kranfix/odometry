@@ -8,7 +8,8 @@ extern "C" {
 #include "../../vector/vector.h"
 #include "../../quaternion/quaternion.h"
 #include "../../mat3/mat3.h"
-#include "../axisang/axisang.h"
+#include "../../rpy/rpy.h"
+#include "../axisang.h"
 
 // Tranformade Axisang
 void kfxAxisang_2Quat(kfxAxisang_t * axis, kfxQuat_t * q);
