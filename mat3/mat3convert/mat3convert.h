@@ -5,7 +5,10 @@
 extern "C" {
 #endif // __cplusplus
 
-#include "mat3convert.h"
+#include "../../quaternion/quaternion.h"
+#include "../../axisang/axisang.h"
+#include "../../rpy/rpy.h"
+#include "../mat3.h"
 
 // Tranformade Mat3
 void kfxMat3_2Quat(kfxMat3_t * m, kfxQuat_t * q);

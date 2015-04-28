@@ -5,6 +5,8 @@
 extern "C" {
 #endif // __cplusplus
 
+#include "mat3convert.h"
+#include <math.h>
 
 // TRANSFORMADE MATRIX
 void kfxMat3_2Rpy(kfxMat3_t * m, kfxRpy_t * rpy){
@@ -18,7 +20,7 @@ void kfxMat3_2Rpy(kfxMat3_t * m, kfxRpy_t * rpy){
 }
 
 void kfxMat3_2Axisang(kfxMat3_t * m, kfxAxisang_t * axis){
-  ////////// RPY //////////
+  ////////// AXIS-ANGLE //////////
   axis->a = acos(((m->r0.x + m->r1.y + m->r2.z) - 1)/2);
 
   float s = pow(2*sin(axis->a),-1);
@@ -29,19 +31,14 @@ void kfxMat3_2Axisang(kfxMat3_t * m, kfxAxisang_t * axis){
 }
 
 void kfxMat3_2Quat(kfxMat3_t * m, kfxQuat_t * q){
-  axis->a = acos(((m->r[0].e[0]+m->r[1].e[1]+m->r[2].e[2]) - 1)/2);
-
-  float s = pow(2*sin(axis->a),-1);
-
-  axis->x = s*(m->r[2].e[1] - m->r[1].e[2]);
-  axis->y = s*(m->r[0].e[2] - m->r[2].e[0]);
-  axis->z = s*(m->r[1].e[0] - m->r[0].e[1]);	
-
+  kfxAxisang_t axis;
+  kfxMat3_2Axisang(m, &axis);
   ////////// QUATERNION //////////
-  q->w = cos((axis->a)/2);
-  q->x = sa * axis->x;
-  q->y = sa * axis->y;
-  q->z = sa * axis->z;
+  q->w = cos(axis.a / 2);
+  float sa = sin(axis.a / 2);
+  q->x = sa * axis.x;
+  q->y = sa * axis.y;
+  q->z = sa * axis.z;
 }
 
 #ifdef __cplusplus
