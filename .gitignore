@@ -1,8 +1,4 @@
-#object files
-*.o
-
-# Libraries
+# Compilation elements
 *.a
-
-# Vim temporal
-*.swp
+*.o
+.build
