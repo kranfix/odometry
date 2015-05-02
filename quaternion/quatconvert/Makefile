@@ -3,8 +3,8 @@ dir=quatconvert
 PKG=.build/${dir}.o
 TEST=.build/test
 SAMPLE=.build/sample
-LIBVEC=../../vector/.build
-LIBS=-L${LIBVEC} vector.o
+LIBVEC=../../vector/.build/vector.o
+LIBQUAT=../../quaternion/.build/quaternion.o
 
 build: ${PKG}
 
@@ -18,16 +18,19 @@ clean:
 	rm .build/${dir}.o
 
 test: ${TEST}
-sample:${SAMPLE}
+sample: ${SAMPLE}
 	./.build/$@
-	
+
 
 ${TEST}: test.c ${PKG}
-${SAMPLE}: sample.c ${PKG} ${LIBVEC}/vector.o
+${SAMPLE}: sample.c ${PKG} ${LIBVEC} ${LIBQUAT}
 	${CC} $^ -lm -o $@
 
-${LIBVEC}/vector.o:
+${LIBVEC}:
 	cd ../../vector; make;
+
+${LIBQUAT}:
+	cd ../../quaternion; make;
 
 cleantest:
 	rm .build/test

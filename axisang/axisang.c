@@ -16,7 +16,7 @@ void kfxAxisang_normalize(kfxAxisang_t * ao, kfxAxisang_t * ai, int * err){
     *err = 1;
     return;
   }
-	  ao->a = ai->a;
+	ao->a = ai->a;
   ao->x = ai->x / ai_mod;
   ao->y = ai->y / ai_mod;
   ao->z = ai->z / ai_mod;
