@@ -8,12 +8,8 @@ void print_quat(kfxQuat_t * q);
 void print_rpy(kfxRpy_t * r);
 
 int main() {
-  //kfxMat3_t m = {
-  //    .r0={2., 3., -1.}, 
-  //    .r1={4.0, -3, 2.0},
-  //    .r2={2.0, 4.0, 2.0}
-  //  };
-  kfxQuat_t q = {0.7, 0.7, -1.1, 0.4};
+  kfxQuat_t q = {0.8201, 0.3369, 0.4292, 0.172477};
+  kfxQuat_divS(&q, &q, kfxQuat_mod(&q));
   kfxMat3_t m;
   kfxAxisang_t a;
   kfxRpy_t rpy;
@@ -56,4 +52,3 @@ void print_quat(kfxQuat_t * q) {
 void print_rpy(kfxRpy_t * r) {
   printf("{%2.4f, %2.4f, %2.4f}\n", r->r, r->p, r->y);
 }
-
