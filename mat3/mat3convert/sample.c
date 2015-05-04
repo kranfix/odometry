@@ -17,6 +17,7 @@ int main() {
   kfxAxisang_t a;
   kfxRpy_t rpy;
 
+  printf("m = "); print_mat3(&m);
   // Printing variable "a" and "b"
   printf("q = ");
   kfxMat3_2Quat(&m, &q);
@@ -30,7 +31,7 @@ int main() {
   // Math with a scalar
   printf("a = ");
   kfxMat3_2Axisang(&m, &a);
-  print_mat3(&m);   printf("\n");
+  print_axisang(&a);   printf("\n");
 
   printf("\n");
 

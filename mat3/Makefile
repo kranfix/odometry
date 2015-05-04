@@ -20,7 +20,6 @@ clean:
 test: ${TEST}
 sample:${SAMPLE}
 	./.build/$@
-	
 
 ${TEST}: test.c ${PKG}
 ${SAMPLE}: sample.c ${PKG} ${LIBVEC}/vector.o
