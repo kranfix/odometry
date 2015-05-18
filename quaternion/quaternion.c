@@ -28,12 +28,13 @@ void kfxQuat_mul(kfxQuat_t * q, kfxQuat_t * ql, kfxQuat_t * qr){
   };
   *q = temp;
 }
-  
+
 // Math with a scalar
 void kfxQuat_mulS(kfxQuat_t * q, kfxQuat_t * ql, float num){
   q->w = ql->w * num;
   kfxVec_mul(&q->V, &ql->V, num);
 }
+
 void kfxQuat_divS(kfxQuat_t * q, kfxQuat_t * ql, float num){
   q->w = ql->w / num;
   q->x = ql->x / num;
@@ -63,7 +64,7 @@ float kfxQuat_dot(kfxQuat_t * ql, kfxQuat_t * qr){
 }
 
 // Square modulus
-float kfxQuat_modSq(kfxQuat_t *q) { // Modulus Squared
+float kfxQuat_modSq(kfxQuat_t * q) { // Modulus Squared
   return kfxQuat_dot(q,q);
 }
 
