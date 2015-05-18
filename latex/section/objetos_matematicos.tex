@@ -146,4 +146,60 @@ previas al desarrollo del código.
   \end{itemize}
 \end{itemize}
 
+\subsection{Ángulos de Euler (Roll-Pitch-Yaw)}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.2\textwidth]{../img/rpy_drone.jpg}
+  \caption{Drone con sus ejes de Euler}
+  \label{rpy_drone}
+\end{figure}
+
+\subsection{Axis-Angle (eje-ángulo)}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.2\textwidth]{../img/axisang.jpg}
+  \caption{Ejemplo de Axis-angle}
+  \label{axisang}
+\end{figure}
+
+Conversiones (Fórmula de Rodriguez)
+\begin{equation}
+  R(\hat{n},\theta)=I+\sin\theta\left [ \hat{n} \right ]_{x}+(1-\cos\theta)\left [ \hat{n} \right ]_{x}^2
+\end{equation}
+\begin{equation}
+  \theta=\\cos^{-1}(\frac{trace(R)-1}{2})
+\end{equation}
+\begin{equation}
+  \hat{n} = \frac{1}{2\sin\theta}
+            \begin{bmatrix}
+              r_{32}-r_{23}\\ 
+              r_{13}-r_{31}\\ 
+              r_{21}-r_{12}
+            \end{bmatrix}
+\end{equation}
+
+\subsection{Quaterniones}
+\begin{itemize}
+\item Representación vectorial
+  \begin{equation}
+    q=\left ( q_{w},q_{x},q_{y},q_{z} \right )^T \epsilon \mathbb{R}^4
+  \end{equation}
+  \begin{equation}
+    q=\left ( r,v \right )^T  
+  \end{equation}
+\item Quaternion unitario
+  \begin{equation}
+    \left \| q \right \|=1
+  \end{equation}
+\item Relación Axis-angle
+  \begin{equation}
+    q = \left( r,v \right) ^ T
+      = \left(
+          \cos\frac{\theta}{2},
+          \sin\frac{\theta}{2} \hat{n}
+        \right) ^ T
+  \end{equation}
+\end{itemize}
+
 \end{document}
