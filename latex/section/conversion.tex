@@ -1,0 +1,37 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+Es necesaria la conversión entre los distintos sistemas
+de referencia ya que no siempre se contará con los
+parámetros requeridos en forma directa. Por tal motivo
+se crean las siguiente bibliotecas que permiten las
+transformaciones de un parámetro a otro tipo de parámetro.
+
+\begin{itemize}
+\item mat3:
+  \begin{itemize}
+  \item mat3 - rpy
+  \item mat3 - axisang
+  \item mat3 - quaternion
+  \end{itemize}
+\item rpy:
+  \begin{itemize}
+  \item rpy - mat3
+  \item rpy - axisang
+  \item rpy - quaternion
+  \end{itemize}
+\item axisang:
+  \begin{itemize}
+  \item axisang - mat3
+  \item axisang - rpy
+  \item axisang - quaternion
+  \end{itemize}
+\item quaternion:
+  \begin{itemize}
+  \item quaternion - mat3
+  \item quaternion - rpy
+  \item quaternion - axisang
+  \end{itemize}
+\end{itemize}
+
+\end{document}
