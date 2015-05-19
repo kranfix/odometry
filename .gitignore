@@ -1,4 +1,5 @@
-# Compilation elements
-*.a
-*.o
-.build
+# Latex - TexMaker outputs
+*.aux
+*.log
+*.pdf
+*.synctex.gz
