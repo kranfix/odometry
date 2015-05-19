@@ -3,3 +3,6 @@
 *.log
 *.pdf
 *.synctex.gz
+
+# C compilation
+.build

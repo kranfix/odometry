@@ -28,13 +28,13 @@ previas al desarrollo del código.
     \begin{equation}
       \mathbf{X} = \left(
       \begin{array}{ccc}x \\y \\z \\\end{array} \right)
-      \epsilon \mathbb{R}^{3}
+      \in{ \mathbb{R}^{3} }
     \end{equation}
   \item Vector aumentado
     \begin{equation}
       \mathbf{\bar{X}} = \left(
           \begin{array}{cccc}x \\y \\z \\1 \\
-          \end{array}        \right) \epsilon \mathbb{R}^{4}
+          \end{array}        \right) \in{\mathbb{R}^{4}}
     \end{equation}
   \item Coordenadas Homogéneas
     \begin{equation}
@@ -42,7 +42,7 @@ previas al desarrollo del código.
           \begin{array}{ccc}
             \tilde{x} \\ \tilde{y} \\ \tilde{z} \\ \tilde{w} \\
           \end{array}
-        \right) \epsilon \mathbb{P}^{3}
+        \right) \in \mathbb{P}^{3}
     \end{equation}
   \end{itemize}
 \item Rectas
@@ -50,16 +50,12 @@ previas al desarrollo del código.
   \item Recta sobre los puntos p y q
     \begin{equation}
       r = (1 - \lambda)p + \lambda q
-    \end{equation}
-    \begin{equation}
-      \lambda \epsilon \mathbb{R}
+        ,\qquad
+      \lambda \in \mathbb{R}
     \end{equation}
   \item Segmento de línea sobre p y q
     \begin{equation}
-      r = (1-\lambda )p+\lambda q
-    \end{equation}
-    \begin{equation}
-      0\leq \lambda  \leq 1
+      r = (1-\lambda )p+\lambda q ,\qquad 0\leq \lambda  \leq 1
     \end{equation}
     \begin{figure}[h]
       \centering
@@ -123,11 +119,11 @@ previas al desarrollo del código.
   \begin{itemize}
   \item Traslación con 3 grados de libertad
     \begin{equation}
-      t \epsilon \mathbb{R}^{3}
+      t \in \mathbb{R}^{3}
     \end{equation}
   \item Rotación con 3 grados de libertad
     \begin{equation}
-      R\epsilon \mathbb{R}^{3x3}
+      R \in \mathbb{R}^{3x3}
     \end{equation}
     \begin{equation}
       X = \begin{pmatrix}
@@ -215,7 +211,6 @@ previas al desarrollo del código.
   \end{equation}
 \end{itemize}
 
-
 \subsection{Axis-Angle (eje-ángulo)}
 
 \begin{figure}[h]
@@ -247,7 +242,7 @@ Conversiones (Fórmula de Rodriguez)
 \begin{itemize}
 \item Representación vectorial
   \begin{equation}
-    q=\left ( q_{w},q_{x},q_{y},q_{z} \right )^T \epsilon \mathbb{R}^4
+    q=\left ( q_{w},q_{x},q_{y},q_{z} \right )^T \in \mathbb{R}^4
   \end{equation}
   \begin{equation}
     q=\left ( r,v \right )^T  
