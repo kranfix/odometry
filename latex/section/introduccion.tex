@@ -1,17 +1,9 @@
-\documentclass[../main.tex]{subfiles}
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
 % no \IEEEPARstart
 
-La Odometría es el estudio de la predicción de la posición relativa
-de un móvil respecto a un punto de referencia mediante ecuaciones
-matemáticas ya establecidas. Se busca entonces implementar estas
-ecuaciones en una biblioteca de programación de fácil acceso. Si
-bien ya existe Armadillo, biblioteca de Álgebra Lineal en C++, su
-lenguaje de programación la limita a ser aplicada en la estimación
-de la posición de un drone por lo compleja y pesada que es. Por tal
-motivo optamos por construir una biblioteca liviana y de fácil acceso
-para cualquier tipo de microcontrolador, la cual se desarrollará en C.
+La Odometría es el estudio de la predicción de la posición relativa de un móvil respecto a un punto de referencia mediante ecuaciones matemáticas ya establecidas. Se busca entonces implementar estas ecuaciones en una biblioteca de programación de fácil acceso. Si bien ya existe Armadillo, biblioteca optimizada de álgebra lineal en C++, su lenguaje de programación la limita a ser aplicada a ciertos procesadores como los Arduino, utilizados en la estimación de la posición de un drone además del desperdicio de memoria con respecto a estos procesadores de bajos recursos. Por tal motivo optamos por construir una biblioteca liviana y de fácil acceso para cualquier tipo de procesador, la cual se desarrollará completamente en C.
 % You must have at least 2 lines in the paragraph with the drop letter
 % (should never be an issue)
 
