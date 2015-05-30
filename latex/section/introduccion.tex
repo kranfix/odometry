@@ -3,9 +3,63 @@
 \begin{document}
 % no \IEEEPARstart
 
-La Odometría es el estudio de la predicción de la posición relativa de un móvil respecto a un punto de referencia mediante ecuaciones matemáticas ya establecidas. Se busca entonces implementar estas ecuaciones en una biblioteca de programación de fácil acceso. Si bien ya existe Armadillo, biblioteca optimizada de álgebra lineal en C++, su lenguaje de programación la limita a ser aplicada a ciertos procesadores como los Arduino, utilizados en la estimación de la posición de un drone además del desperdicio de memoria con respecto a estos procesadores de bajos recursos. Por tal motivo optamos por construir una biblioteca liviana y de fácil acceso para cualquier tipo de procesador, la cual se desarrollará completamente en C.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
+En los sistemas de navegación es necesario tener métodos
+de estimación de posición y velocidad a partir de ciertos
+sensores innerciales o encoders.
+
+Se necesita contar con una biblioteca que permita hacer estas
+estimaciones que sea utilizable en cualquier microcontrolador
+(${\mu}C$) siendo ligera, rápida y haciendo uso eficiente de la
+memoria de datos.
+
+\subsection{Definición de odometría y Dead-Reckoning}
+\textbf{Odometría} es el estudio de la predicción de la posición
+relativa de un móvil mediante el uso de ruedas las cuales
+tienen discos encoder.respecto a un punto de referencia mediante
+ecuaciones matemáticas ya establecidas.
+
+\textbf{Dead-Reckoning(DR)} es el procedimiento matemático basada
+en ecuaciones trigonométricas para la estimación de la posición
+y velocidad.
+
+\subsection{Bibliotecas para operaciones matriciales y vectoriales}
+Existen otras bibliotecas para operaciones matriciales y vectoriales
+escritas C++. Dependiendo del tipo de operación a realizar, están
+optimizadas. Las tres más reconocidas son:
+
+\begin{itemize}
+\item Armadillo
+\item IT++
+\item Newmat
+\item Eigen
+\end{itemize}
+
+Entre las mencionadas, Armadillo es la más eficiente y rápida
+\cite{LibSpeedweb:Armadillo}-\cite{LibCompare} pero no cumplen
+con algunos de los requisitos indicados.
+
+\subsection{Problema de usar bibliotecas de terceros}
+Existen varios criterios por los que se decide crear una nueva
+biblioteca que haga este tipo de operaciones matriciales,
+vectoriales y otros:
+
+\begin{itemize}
+\item Todos los microcontroladores presentan compilador para C
+      pero un buen número no cuenta con compiladores en C++.
+\item Las bibliotecas de terceros cuentan con muchas más cosas
+      de las que se necesitan y que nunca serán usadas por lo
+      que consumen más memoria de lo necesario.
+\item Ninguna cuenta con todos los objetos matemáticos que se
+      necesitan trabajar a la vez.
+\item Generan código binario de más por ser de propósito general.
+\end{itemize}
+
+\subsection{Recodo - Biblioteca en C}
+Dados los problemas mencionados, se opta por implementar una
+biblioteca que en C que sea de propósito específico a la cual
+llamaremos Recodo, por Dead-\textbf{REc}koning y
+\textbf{Odo}metría. De esta forma podemos tener control
+completo sobre la administración de la memoria.
 
 \hfill
 
