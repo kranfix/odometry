@@ -22,6 +22,10 @@ ecuaciones matemáticas ya establecidas.
 en ecuaciones trigonométricas para la estimación de la posición
 y velocidad.
 
+Adicionalmente es necesario implementar filtros para poder mejorar
+la estiación, estos suelen ser los filtros de partículas y los
+filtros de Kalman extendido \cite{DR:kalman_missing}.
+
 \subsection{Bibliotecas para operaciones matriciales y vectoriales}
 Existen otras bibliotecas para operaciones matriciales y vectoriales
 escritas C++. Dependiendo del tipo de operación a realizar, están
@@ -35,8 +39,8 @@ optimizadas. Las tres más reconocidas son:
 \end{itemize}
 
 Entre las mencionadas, Armadillo es la más eficiente y rápida
-\cite{LibSpeedweb:Armadillo}-\cite{LibCompare} pero no cumplen
-con algunos de los requisitos indicados.
+\cite{LibSpeedweb:Armadillo}-\cite{LibCompare} pero no ninguna
+cumple con todos los requisitos indicados.
 
 \subsection{Problema de usar bibliotecas de terceros}
 Existen varios criterios por los que se decide crear una nueva
@@ -57,7 +61,7 @@ vectoriales y otros:
 \subsection{Recodo - Biblioteca en C}
 Dados los problemas mencionados, se opta por implementar una
 biblioteca que en C que sea de propósito específico a la cual
-llamaremos Recodo, por Dead-\textbf{REc}koning y
+llamaremos Recodo, por Dead-\textbf{Rec}koning y
 \textbf{Odo}metría. De esta forma podemos tener control
 completo sobre la administración de la memoria.
 
