@@ -2,9 +2,10 @@ clean:
 	rm *.log
 	rm *.synctex.gz
 	rm *.aux
+	rm *.dvi
+	rm *.out
 
 cleanpdf:
 	rm *.pdf
-	rm section/*.pdf
 
 cleanall: clean cleanpdf
