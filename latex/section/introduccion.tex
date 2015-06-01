@@ -5,7 +5,7 @@
 
 En los sistemas de navegación es necesario tener métodos
 de estimación de posición y velocidad a partir de ciertos
-sensores innerciales o encoders.
+sensores inerciales o encoders.
 
 Se necesita contar con una biblioteca que permita hacer estas
 estimaciones que sea utilizable en cualquier microcontrolador
@@ -13,23 +13,22 @@ estimaciones que sea utilizable en cualquier microcontrolador
 memoria de datos.
 
 \subsection{Definición de odometría y Dead-Reckoning}
-\textbf{Odometría} es el estudio de la predicción de la posición
-relativa de un móvil mediante el uso de ruedas las cuales
-tienen discos encoder.respecto a un punto de referencia mediante
-ecuaciones matemáticas ya establecidas.
+\textbf{Odometría} es el estudio de la estimación de la posición
+relativa de un móvil, basada en ecuaciones matemáticas de datos
+obtenidos mediante el uso de encoders ubicadas en las ruedas.
 
 \textbf{Dead-Reckoning(DR)} es el procedimiento matemático basada
 en ecuaciones trigonométricas para la estimación de la posición
 y velocidad.
 
 Adicionalmente es necesario implementar filtros para poder mejorar
-la estiación, estos suelen ser los filtros de partículas y los
+la estimación. Estos suelen ser los filtros de partículas y los
 filtros de Kalman extendido \cite{DR:kalman_missing}.
 
 \subsection{Bibliotecas para operaciones matriciales y vectoriales}
 Existen otras bibliotecas para operaciones matriciales y vectoriales
-escritas C++. Dependiendo del tipo de operación a realizar, están
-optimizadas. Las tres más reconocidas son:
+desarrolladas en C++. Dependiendo del tipo de operación a realizar,
+están optimizadas. Las cuatro más reconocidas son:
 
 \begin{itemize}
 \item Armadillo
@@ -39,8 +38,9 @@ optimizadas. Las tres más reconocidas son:
 \end{itemize}
 
 Entre las mencionadas, Armadillo es la más eficiente y rápida
-\cite{LibSpeedweb:Armadillo}-\cite{LibCompare} pero no ninguna
-cumple con todos los requisitos indicados.
+\cite{LibSpeedweb:Armadillo}-\cite{LibCompare} pero ninguna
+cumple con los requisitos necesarios para implementarla de
+forma óptima.
 
 \subsection{Problema de usar bibliotecas de terceros}
 Existen varios criterios por los que se decide crear una nueva
@@ -48,10 +48,10 @@ biblioteca que haga este tipo de operaciones matriciales,
 vectoriales y otros:
 
 \begin{itemize}
-\item Todos los microcontroladores presentan compilador para C
+\item Todos los ${\mu}C$ presentan compilador para C
       pero un buen número no cuenta con compiladores en C++.
-\item Las bibliotecas de terceros cuentan con muchas más cosas
-      de las que se necesitan y que nunca serán usadas por lo
+\item Las bibliotecas de terceros cuentan con muchos
+      funcinalidades que nunca serán usadas, por lo
       que consumen más memoria de lo necesario.
 \item Ninguna cuenta con todos los objetos matemáticos que se
       necesitan trabajar a la vez.
