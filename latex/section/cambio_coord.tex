@@ -1,0 +1,53 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\begin{itemize}
+\item Traslación
+  \begin{equation}
+    {\tilde{x}}'= \begin{pmatrix}
+                    I & t \\
+                    0^{T} & 1 \end{pmatrix} \tilde{x}
+  \end{equation}
+  
+\item Rotación
+  \begin{equation}
+    {\tilde{x}}' = \begin{pmatrix}
+                     R &1 \\
+                     0^{T} &1
+                   \end{pmatrix}\tilde{x}  
+  \end{equation}
+  \begin{equation}
+    R = \begin{pmatrix}
+          r_{11} & r_{12}  &r_{13} \\ 
+          r_{21} & r_{22}  &r_{23} \\ 
+          r_{31} & r_{23}  &r_{33}
+        \end{pmatrix}
+  \end{equation}
+
+\item Traslación y rotación (Transformaciones Euclidianas)
+  \begin{itemize}
+  \item Traslación con 3 grados de libertad
+    \begin{equation}
+      t \in \mathbb{R}^{3}
+    \end{equation}
+  \item Rotación con 3 grados de libertad
+    \begin{equation}
+      R \in \mathbb{R}^{3x3}
+    \end{equation}
+    \begin{equation}
+      X = \begin{pmatrix}
+            R & t \\
+            0 & 1 \end{pmatrix} \tilde{x}
+    \end{equation}
+    \begin{equation}
+      X = \begin{pmatrix}
+            r_{11} & r_{12}  & r_{13} & t_{1}\\ 
+            r_{21} & r_{22}  & r_{23} & t_{2}\\ 
+            r_{31} & r_{23}  & r_{33} & t_{3}\\
+            0      & 0       & 0      & 1
+          \end{pmatrix}
+    \end{equation}
+  \end{itemize}
+\end{itemize}
+
+\end{document}

@@ -1,13 +1,12 @@
 \documentclass[conference]{IEEEtran}
-
 \usepackage[utf8]{inputenc}
 \usepackage{subfiles}
 \usepackage{mathtools}
 \usepackage{amssymb}
-
+\usepackage{multirow}
 % *** GRAPHICS RELATED PACKAGES ***
 \ifCLASSINFOpdf
-  \usepackage[pdftex]{graphicx}
+	\usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -76,7 +75,7 @@
 Este artículo presenta la creación de una biblioteca en C para cálculos
 de odometría, creada y optimizada para ser aplicada en la estimación de
 la posición de un drone con procesadores de bajos recursos como lo son
-los Arduino además de compararla con otras bibliotecas existentes. Los
+los Arduino, además de compararla con otras bibliotecas existentes. Los
 elementos matemáticos son descritos y estructurados computacionalmente.
 La conversión entre estos tipos de datos es mostrada. Se explica también
 la forma de uso en las diversas partes de un sistema implementado sobre
@@ -98,8 +97,14 @@ drones y se muestran conclusiones.
 \section{Introducción}
 \subfile{introduccion}
 
-\section{Objetos matemáticos a tratar}
-\subfile{objetos_matematicos}
+\section{Elementos geométricos básicos}
+\subfile{elem_basic}
+
+\section{Cambio de coordenadas}
+\subfile{cambio_coord}
+
+\section{Elementos geométricos de rotación}
+\subfile{rot_elem}
 
 \section{Implementación de los objetos matemáticos}
 \subfile{implementacion}
@@ -109,6 +114,9 @@ drones y se muestran conclusiones.
 
 \section{Pruebas de testeo}
 \subfile{testeo}
+
+\section{Implementación sobre drones}
+\subfile{implementacion_drone}
 
 \section{Conclusiones}
 \subfile{conclusiones}

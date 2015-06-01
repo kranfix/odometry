@@ -1,0 +1,82 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+Para poder entender la funcionalidad de la biblioteca es
+necesario conocer elementos geométricos básicos, cambio
+de coordenadas, elementos geométricos para representar
+la rotación de ejes y la conversión entre estos.
+
+\subsection{Elementos geom\'etricos}
+
+\begin{itemize}
+\item Puntos o vectores
+  \begin{itemize}
+  \item Vector
+    \begin{equation}
+      \mathbf{X} = \left(
+      \begin{array}{ccc}x \\y \\z \\\end{array} \right)
+      \in{ \mathbb{R}^{3} }
+    \end{equation}
+  \item Vector aumentado
+    \begin{equation}
+      \mathbf{\bar{X}} = \left(
+          \begin{array}{cccc}x \\y \\z \\1 \\
+          \end{array}        \right) \in{\mathbb{R}^{4}}
+    \end{equation}
+  \item Coordenadas Homogéneas
+    \begin{equation}
+      \mathbf{\tilde{X}} = \left(
+          \begin{array}{ccc}
+            \tilde{x} \\ \tilde{y} \\ \tilde{z} \\ \tilde{w} \\
+          \end{array}
+        \right) \in \mathbb{P}^{3}
+    \end{equation}
+  \end{itemize}
+\item Rectas
+  \begin{itemize}
+  \item Recta sobre los puntos p y q
+    \begin{equation}
+      r = (1 - \lambda)p + \lambda q
+        ,\qquad
+      \lambda \in \mathbb{R}
+    \end{equation}
+  \item Segmento de línea sobre p y q
+    \begin{equation}
+      r = (1-\lambda )p+\lambda q ,\qquad 0\leq \lambda  \leq 1
+    \end{equation}
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.2\textwidth]{../img/recta_3d.jpg}
+      \caption{Recta 3D}
+      \label{recta_3d}
+    \end{figure}
+  \end{itemize}
+\item Planos:
+  \begin{itemize}
+  \item Representación vectorial del plano
+    \begin{equation}
+      \tilde{m}=\left ( a,b,c,d \right )^{T}
+    \end{equation}
+  \item Ecuación del plano
+    \begin{equation}
+      \tilde{m}=\left ( a,b,c,d \right( )^{T}    
+    \end{equation}
+  \item Plano normalizado con vector unitario normal “n” y distancia “d”
+    \begin{equation}
+      m= \left( \hat{n_{x}},\hat{n_{y}},\hat{n_{z}},d \right) ^ {T}=
+         \left( \hat{n},d \right)
+    \end{equation}
+    \begin{equation}
+      \left \| \hat{n} \right \| = 1
+    \end{equation}
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.2\textwidth]{../img/plano_3d.jpg}
+      \caption{Plano 3D}
+      \label{plano_3d}
+    \end{figure}
+  \end{itemize}
+\end{itemize}
+
+
+\end{document}
